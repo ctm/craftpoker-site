@@ -3,3 +3,6 @@
 
 # macOS cruft.
 .DS_Store
+
+# Wrangler local cache / tmp / state — not source.
+.wrangler/
