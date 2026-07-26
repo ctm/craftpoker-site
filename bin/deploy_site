@@ -14,10 +14,22 @@ set -euo pipefail
 # git-build integration and pin ZOLA_VERSION in the Pages build settings.
 # In that setup Cloudflare builds on push and this script is unnecessary.
 
+# Optional first argument: override the site base URL. Use this to preview on a
+# Cloudflare Pages *.pages.dev URL BEFORE the apex (craftpoker.com) points here,
+# e.g.:  bin/deploy_site https://craftpoker-site.pages.dev
+# With no argument it uses config.toml's base_url (https://craftpoker.com) — the
+# correct value for production once the apex is bound to this Pages project.
+base_url="${1:-}"
+
 cd "$(dirname "$0")/.."
 
 echo "==> Building site with zola"
-zola build
+if [ -n "$base_url" ]; then
+  echo "    (base_url override: $base_url)"
+  zola build --base-url "$base_url"
+else
+  zola build
+fi
 
 echo "==> Deploying public/ to Cloudflare Pages"
 npx wrangler pages deploy public --project-name=craftpoker-site
