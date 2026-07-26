@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} &middot; {{ config.title }}{% endblock title %}
+
+{% block content %}
+<article>
+  <h1>{{ section.title }}</h1>
+  {{ section.content | safe }}
+</article>
+
+<ul>
+  {% for page in section.pages %}
+  <li>
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+    {% if page.date %}<time datetime="{{ page.date }}">{{ page.date }}</time>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% if section.generate_feeds %}
+<p>
+  <a href="{{ get_url(path='blog/atom.xml') }}">Subscribe to this section's Atom feed</a>
+</p>
+{% endif %}
+{% endblock content %}

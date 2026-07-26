@@ -1,0 +1,21 @@
+# Zola configuration for the craftpoker.com marketing/blog site.
+#
+# NOTE ON FEED KEYS: the keys below (`generate_feeds`, `feed_filenames`,
+# and `taxonomies = [{ ..., feed = true }]`) are the Zola 0.19+ spelling.
+# Older Zola (<= 0.18) used the SINGULAR forms `generate_feed = true` and
+# `feed_filename = "atom.xml"`. If `brew install zola` pulled an older
+# version, adjust these keys to the singular forms to match that version.
+
+base_url = "https://craftpoker.com"
+title = "Craft Poker"
+description = "Craft Poker — home poker with friends, done right."
+default_language = "en"
+
+# Generate syndication feeds for the site and for taxonomy terms.
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+# Per-stakeholder tags. `feed = true` emits an atom.xml for each tag term.
+taxonomies = [
+    { name = "tags", feed = true },
+]

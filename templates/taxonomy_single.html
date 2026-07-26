@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ term.name }} &middot; {{ config.title }}{% endblock title %}
+
+{% block content %}
+<article>
+  <h1>{{ taxonomy.name | capitalize }}: {{ term.name }}</h1>
+  <ul>
+    {% for page in term.pages %}
+    <li>
+      <a href="{{ page.permalink }}">{{ page.title }}</a>
+      {% if page.date %}<time datetime="{{ page.date }}">{{ page.date }}</time>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if taxonomy.feed %}
+  <p>
+    <a href="{{ term.permalink }}atom.xml">Subscribe to the "{{ term.name }}" Atom feed</a>
+  </p>
+  {% endif %}
+</article>
+{% endblock content %}

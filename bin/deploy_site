@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Build the Zola site and deploy the generated `public/` directory to
+# Cloudflare Pages via Wrangler.
+#
+# Requirements:
+#   - zola installed (https://www.getzola.org/) — `brew install zola`.
+#   - A Cloudflare API token with Pages permissions available to wrangler,
+#     e.g. exported as CLOUDFLARE_API_TOKEN (and CLOUDFLARE_ACCOUNT_ID).
+#   - node/npx available (wrangler is invoked via `npx`).
+#
+# ALTERNATIVE (no local CI): connect this repo to Cloudflare Pages' built-in
+# git-build integration and pin ZOLA_VERSION in the Pages build settings.
+# In that setup Cloudflare builds on push and this script is unnecessary.
+
+cd "$(dirname "$0")/.."
+
+echo "==> Building site with zola"
+zola build
+
+echo "==> Deploying public/ to Cloudflare Pages"
+npx wrangler pages deploy public --project-name=craftpoker-site
