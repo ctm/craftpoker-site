@@ -1,11 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} &middot; {{ config.title }}{% endblock title %}
+{#
+  Leaf pages: the Mission and Contact pages, and individual blog posts.
+  Date, tags, and the "back to Blog" footer only render for blog posts
+  (pages under /blog/), so Mission/Contact stay clean.
+#}
 
 {% block content %}
-<article>
-  <h1>{{ page.title }}</h1>
-  {% if page.date %}<time datetime="{{ page.date }}">{{ page.date }}</time>{% endif %}
-  {{ page.content | safe }}
-</article>
+{% set is_post = current_path and current_path is starting_with("/blog/") %}
+<div class="wrap page">
+  <article class="{% if is_post %}post{% endif %}">
+    {% if is_post %}
+    <a class="backlink" href="{{ get_url(path='/blog/') }}">&larr; Back to Blog</a>
+    {% endif %}
+
+    <header class="page-header">
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if is_post %}
+      <div class="meta">
+        {% if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format="%B %-d, %Y") }}</time>{% endif %}
+        {% if page.taxonomies.tags %}
+        <ul class="tags">
+          {% for tag in page.taxonomies.tags %}
+          <li><a class="pill" href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="prose">
+      {{ page.content | safe }}
+    </div>
+
+    {% if is_post %}
+    <footer class="post-footer">
+      <a class="backlink" href="{{ get_url(path='/blog/') }}">&larr; Back to Blog</a>
+      <a href="{{ get_url(path='blog/atom.xml') }}">Subscribe to the blog feed</a>
+    </footer>
+    {% endif %}
+  </article>
+</div>
 {% endblock content %}

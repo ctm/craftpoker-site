@@ -1,0 +1,92 @@
+{#
+  head_meta.html — per-page <title>, meta description, canonical link, and
+  Open Graph / Twitter Card tags. Included from <head> in base.html.
+
+  Written to be ROBUST across every kind of page Zola renders. Depending on
+  the template, exactly one of `page`, `section`, `term`, or `taxonomy` is
+  defined; every access below is guarded so this never errors:
+
+    - the home page        → `section`, current_path == "/"   → site title alone
+    - a leaf page          → `page` (mission, contact, blog posts)
+    - the blog section     → `section`, current_path == "/blog/"
+    - the tags list         → `taxonomy` + `terms` (no `term`)
+    - a single tag's page  → `taxonomy` + `term`
+
+  `og:image` can be overridden per page/section via `extra.image`
+  (a path under static/, e.g. `image = "img/my-og.png"`), otherwise it
+  falls back to the site default at static/img/og-default.svg.
+#}
+
+{# ---- Title / description / og:type, chosen by page kind ---- #}
+{%- if page %}
+  {%- set_global meta_title = page.title ~ " · " ~ config.title %}
+  {%- set_global meta_desc = page.description | default(value=config.description) %}
+  {%- if current_path and current_path is starting_with("/blog/") %}
+    {%- set_global og_type = "article" %}
+  {%- else %}
+    {%- set_global og_type = "website" %}
+  {%- endif %}
+{%- elif term %}
+  {%- set_global meta_title = term.name ~ " · " ~ config.title %}
+  {%- set_global meta_desc = 'Posts tagged “' ~ term.name ~ '” on ' ~ config.title ~ "." %}
+  {%- set_global og_type = "website" %}
+{%- elif taxonomy %}
+  {%- set tax_name = taxonomy.name | capitalize %}
+  {%- set_global meta_title = tax_name ~ " · " ~ config.title %}
+  {%- set_global meta_desc = config.description %}
+  {%- set_global og_type = "website" %}
+{%- elif section and current_path and current_path != "/" %}
+  {%- set_global meta_title = section.title ~ " · " ~ config.title %}
+  {%- set_global meta_desc = section.description | default(value=config.description) %}
+  {%- set_global og_type = "website" %}
+{%- else %}
+  {# Home page (and any unexpected fallback): show the site title alone. #}
+  {%- set_global meta_title = config.title %}
+  {%- if section and section.description %}
+    {%- set_global meta_desc = section.description %}
+  {%- else %}
+    {%- set_global meta_desc = config.description %}
+  {%- endif %}
+  {%- set_global og_type = "website" %}
+{%- endif %}
+
+{# ---- Canonical / og:url ---- #}
+{%- set canonical = current_url | default(value=config.base_url) %}
+
+{# ---- og:image: per-page override → per-section override → site default ---- #}
+{%- set_global og_image = get_url(path="img/og-default.svg") %}
+{%- if page %}
+  {%- if page.extra.image %}{%- set_global og_image = get_url(path=page.extra.image) %}{%- endif %}
+{%- elif section %}
+  {%- if section.extra.image %}{%- set_global og_image = get_url(path=section.extra.image) %}{%- endif %}
+{%- endif %}
+
+<title>{{ meta_title }}</title>
+<meta name="description" content="{{ meta_desc }}" />
+<link rel="canonical" href="{{ canonical }}" />
+
+{# Open Graph #}
+<meta property="og:site_name" content="{{ config.title }}" />
+<meta property="og:type" content="{{ og_type }}" />
+<meta property="og:title" content="{{ meta_title }}" />
+<meta property="og:description" content="{{ meta_desc }}" />
+<meta property="og:url" content="{{ canonical }}" />
+<meta property="og:image" content="{{ og_image }}" />
+
+{# Twitter Card #}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ meta_title }}" />
+<meta name="twitter:description" content="{{ meta_desc }}" />
+<meta name="twitter:image" content="{{ og_image }}" />
+
+{# Article metadata for blog posts #}
+{%- if page and current_path and current_path is starting_with("/blog/") %}
+{%- if page.date %}
+<meta property="article:published_time" content="{{ page.date }}" />
+{%- endif %}
+{%- if page.taxonomies.tags %}
+{%- for tag in page.taxonomies.tags %}
+<meta property="article:tag" content="{{ tag }}" />
+{%- endfor %}
+{%- endif %}
+{%- endif %}

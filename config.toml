@@ -19,3 +19,12 @@ feed_filenames = ["atom.xml"]
 taxonomies = [
     { name = "tags", feed = true },
 ]
+
+# `zola check` validates external links by default. Skip our own first-party
+# properties so a transient outage (or an offline CI runner) never fails the
+# build — these are marketing links to sites we control, not content to verify.
+[link_checker]
+skip_prefixes = [
+    "https://friends.craftpoker.com",
+    "https://ctm.github.io",
+]

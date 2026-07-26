@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}{{ term.name }} &middot; {{ config.title }}{% endblock title %}
-
 {% block content %}
-<article>
-  <h1>{{ taxonomy.name | capitalize }}: {{ term.name }}</h1>
-  <ul>
+<div class="wrap page">
+  <a class="backlink" href="{{ get_url(path='/tags/') }}">&larr; All tags</a>
+
+  <header class="page-header">
+    <h1 class="page-title">{{ taxonomy.name | capitalize }}: {{ term.name }}</h1>
+    <p class="meta">{{ term.pages | length }} post{{ term.pages | length | pluralize }} tagged &ldquo;{{ term.name }}&rdquo;.</p>
+  </header>
+
+  <ul class="post-list">
     {% for page in term.pages %}
-    <li>
-      <a href="{{ page.permalink }}">{{ page.title }}</a>
-      {% if page.date %}<time datetime="{{ page.date }}">{{ page.date }}</time>{% endif %}
+    <li class="post-card">
+      <h2 class="post-card__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+      <div class="meta">
+        {% if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format="%B %-d, %Y") }}</time>{% endif %}
+      </div>
+      {% if page.description %}<p class="post-card__excerpt">{{ page.description }}</p>{% endif %}
     </li>
     {% endfor %}
   </ul>
 
   {% if taxonomy.feed %}
-  <p>
-    <a href="{{ term.permalink }}atom.xml">Subscribe to the "{{ term.name }}" Atom feed</a>
+  <p class="subscribe">
+    <a href="{{ term.permalink }}atom.xml">Subscribe to the &ldquo;{{ term.name }}&rdquo; Atom feed</a>
   </p>
   {% endif %}
-</article>
+</div>
 {% endblock content %}
