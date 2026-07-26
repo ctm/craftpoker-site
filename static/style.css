@@ -329,6 +329,30 @@ code {
   flex: none;
   width: 30px;
   height: 30px;
+  border-radius: 7px;
+}
+
+/* AI placeholder disclosure banner (home page only). Remove with its HTML block. */
+.ai-notice {
+  background: var(--amber-500);
+  color: #241a10;
+}
+.ai-notice__inner {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  padding-block: 0.7rem;
+}
+.ai-notice__icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+}
+.ai-notice p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .site-nav {
