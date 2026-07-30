@@ -1,42 +1,100 @@
 +++
-title = "Our Mission"
-description = "Why Craft Poker exists — poker with friends for its own sake, the widest variety of games, and Fun Money instead of gambling."
+title = "Mission"
+description = "Craftpoker.com vs. Craft Poker Co."
 template = "page.html"
 +++
 
-# Our Mission
+Craftpoker.com, is the flagship site of [Craft Poker
+Co.](https://ctm.github.io/docs/players_manual/craft-poker-co.html).
 
-Craft Poker exists for one reason: to make it easy to play real poker with your
-friends, wherever they are. Not a casino. Not a betting app. Just the game you
-love, with the people you'd play it with at the kitchen table.
+Craftpoker.com's mission is to provide a fun, non-gambling, site for
+playing serious<sup class="footnote-reference"><a
+href="#1">1</a></sup> poker with friends, including friends you haven't
+met yet.
 
-## Poker with friends, for its own sake
+Craftpoker.com is this website; Craft Poker Co. is the company that wrote
+and controls the Mb2 software.
 
-The best poker nights were never about the money. They were about the people —
-the needling, the bad beats, the impossible bluffs, the hand you'll still be
-talking about a year later. Craft Poker is built to protect that feeling. It
-deals fair, keeps the records straight, and gets out of the way so your table
-can be about the game and the company.
+_Craft Poker Co.'s_ mission is to build value for shareholders by
+creating a powerful, flexible poker ecosystem that can be deployed
+anywhere.
 
-## The widest variety of games
 
-Most poker software is Hold'em and little else. We think that's a shame, because
-poker is enormous. Craft Poker supports the whole spread — the Hold'em family,
-Omaha and Omaha hi/lo, Stud, Razz and Stud-8, the draw and lowball games, and a
-long list of rare and exotic variants that are hard to find anywhere else. It's
-made for mixed games and dealer's choice, so no two nights have to look alike.
+## Play Money, Real Players
 
-## Fun Money, not gambling
+Play money often isn't taken seriously. In part because the business model
+of many sites that have play money is to sell play money, which in essence
+devalues it and leads to horrible, unrealistic, annoying play&mdash;often
+accompanied by bad attitudes.
 
-Craft Poker is not gambling. Everyone plays with Fun Money that has no cash
-value: there is nothing to buy in with and nothing to cash out. That's a
-deliberate choice. It keeps the game friendly, keeps the focus on skill and
-sociability, and lets anyone sit down without risking a cent.
+Craftpoker.com's play money is called [Fun
+Money](https://ctm.github.io/docs/players_manual/fun_money.html), but
+the fun that it is encouraging is to play well and learn more about the game,
+not to be a jerj.
 
-## Built for the long game
+Our testers love and respect the game; they're real people with
+friendly rivalries.
 
-We're building the poker software we want to play ourselves, and we're building
-it to last — polished native apps that keep themselves updated, a game that runs
-reliably, and a community of players, backers, and supporters helping shape
-where it goes next. If that sounds like your kind of table, we'd love to have
-you.
+As we grow, although we'll do our best to get people to take free
+public play money seriously, we'll also provide a [subscription
+service](https://ctm.github.io/docs/players_manual/craft-poker-co/craftpoker.html)
+that will allow you to establish clubs, where you'll control of
+whether your games are seen or not, whether the general public can
+participate, and alternate scoring systems. For example, if you want to
+use craftpoker.com to practice play in a casino, you might want to set
+up tournaments or ring games that have the same Fun Money vig or drop
+as the establishments you will be playing in IRL.
+
+## Flexibility
+
+Mb2, Craft Poker Co.'s software that we run on craftpoker.com is extremely
+flexible. You can see it in the variety of games, mixes, structures
+and series that we offer. "Soon" you'll be able to customize games, create
+mixes, put together and edit structures and series.
+
+Even though it currently looks horrible, the user interface is also very
+flexible, and "soon" you'll be able to customize it, either privately,
+where your changes live on your device and not even uploaded to our
+web site (i.e., a client-side upload) or in a way where you can share
+your customization with others (i.e., a server-side upload).
+
+## No Ads
+
+Craftpoker.com doesn't serve you ads, nor is any information about
+you shared with any entity. In fact, very little information about you
+is kept. Currently, so little is kept that it interferes with
+debugging (no user agent) and communicating with our player base (no
+email address). 
+
+## "Few" Dark Patterns
+
+There are plenty of ways to boost revenue that are considered [dark
+(or deceptive) patterns](https://deceptive.design/). Craftpoker.com
+does not use any of what is traditionally considered a dark pattern,
+but an expansive definition would consider both closed source and low
+user-ids to reward early adopters as dark patterns. Low user-ids being
+artificial scarcity.
+
+Sometimes, it's a fine line. Mb2's interface is ugly and annoying.
+However, Mb2's interface _will be_ elegant, comfortable, and
+customizable. Perhaps our interface will tip someone with an addictive
+personality into playing more online poker than is beneficial. It's
+like high ABV craft beer. Take [Prairie
+Artisan](https://prairieales.com/) as an example. My relationship to
+Prairie Artisan is solely a satisfied customer. I do not know the
+founders, but it is extremely unlikely that they boost the ABV of
+their beverages to encourage alcohol addiction (which is a real
+thing). That is very different from many online sites. [Addictive
+Design](https://deceptive.design/types/browse/?sel=%2Ftypes%2Faddictive-design)
+is all too common.
+
+The bottom line is, craftpoker.com is and will remain a site where you
+can invite your friends and family to play with as much fear as taking
+them to a bar that serves excellent beer, wine or spirits.
+
+<br/>
+<hr/>
+
+<div class="footnote-definition" id="1">
+<p>1. As serious as you want to be, with respect to the other participants.</p>
+</div>

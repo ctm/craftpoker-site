@@ -8,20 +8,20 @@
 #}
 
 {% block content %}
-{# ---- AI placeholder disclosure. REMOVE this whole block once the real copy is in. ---- #}
+{# ---- WIP disclosure. REMOVE this whole block once the real copy is in. ---- #}
 <aside class="ai-notice" role="note">
   <div class="wrap ai-notice__inner">
     <svg class="ai-notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.75h.01"/></svg>
-    <p><strong>Heads up:</strong> Almost all of the text on this site is AI-generated placeholder. We're standing the site up now and will replace it with our own words "soon".</p>
+    <p><strong>Note:</strong> Most of the text here will change. Some features mentioned here are not finished, most features aren't mentioned at all.</p>
   </div>
 </aside>
 
 <section class="hero">
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow">Fun Money · not gambling</p>
+      <p class="eyebrow">Poker with Friends</p>
       <h1 class="hero__title">{{ section.extra.hero_title | default(value=config.title) }}</h1>
-      <p class="hero__subtitle">{{ section.extra.hero_subtitle | default(value=config.description) }}</p>
+      <p class="hero__subtitle">{{ section.extra.hero_subtitle | default(value=config.description) | safe }}</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg"
            href="{{ section.extra.cta_primary_url | default(value='https://friends.craftpoker.com') }}">
@@ -48,7 +48,7 @@
 {% if section.extra.features %}
 <section class="features">
   <div class="wrap">
-    <h2>Why players love Craft Poker</h2>
+    <h2>Some Features</h2>
     <div class="features__grid">
       {% for f in section.extra.features %}
       <article class="feature">

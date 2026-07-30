@@ -647,3 +647,19 @@ a.pill:hover {
     transform: none;
   }
 }
+
+/* 12. Footnote cleanup */
+.footnote-definition {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
+}
+
+.footnote-definition p {
+    margin: 0;
+    display: inline;
+}   
+
+sup.footnote-definition-label {
+    vertical-align: unset;
+}

@@ -1,6 +1,6 @@
 +++
 title = "Craft Poker"
-description = "Craft Poker is online home poker with friends — one of the widest varieties of poker anywhere, in tournaments and ring games, all played with Fun Money that has no cash value."
+description = "Craft Poker: online poker with friends — perhaps the widest varieties of poker anywhere, played with Fun Money (no cash value)."
 template = "index.html"
 
 # ---------------------------------------------------------------------------
@@ -8,8 +8,8 @@ template = "index.html"
 # words without touching the HTML template (templates/index.html loops over it).
 # ---------------------------------------------------------------------------
 [extra]
-hero_title = "Home poker with your friends — dozens of games, no gambling"
-hero_subtitle = "Craft Poker brings your home game online: one of the widest varieties of poker you'll find, in tournaments and ring games. Everyone plays with Fun Money that has no cash value — nothing to buy in, nothing to cash out."
+hero_title = "Welcome"
+hero_subtitle = "This page is placeholder. The game server, however, is being tested daily by around a hundred people. <i>You're welcome to join us</i>, but don't expect to learn much about the site from this particular page. Mission, Blog, Contact and Play are all correct.<br/><br/>Craft Poker deals <a href=\"https://ctm.github.io/docs/players_manual/games.html\">dozens of variants</a> of poker. It's all <a href=\"https://ctm.github.io/docs/players_manual/fun_money.html\">Fun Money</a> that has no cash value but allows you to keep score if you want to."
 
 # Primary call to action → the live game.
 cta_primary_label = "Play now"
@@ -17,17 +17,17 @@ cta_primary_url = "https://friends.craftpoker.com"
 
 # Secondary call to action → the Players' Manual (documents the game variants).
 cta_secondary_label = "Explore the games"
-cta_secondary_url = "https://ctm.github.io/docs/players_manual/"
+cta_secondary_url = "https://ctm.github.io/docs/players_manual/games.html"
 
 # Hero graphic. Drop a real 1200x675 image at static/img/ and point here.
 hero_image = "img/hero.svg"
 
 # Feature cards. `icon` picks a built-in inline SVG: games | trophy | devices | chip.
 features = [
-  { icon = "games", title = "Dozens of games", body = "Hold'em and Omaha (including hi/lo), Stud, Razz and Stud-8, draw and lowball games, plus rare variants like Chowaha, Courchevel, Dramaha, Mississippi Stud and Archie. Perfect for mixed games and dealer's choice." },
-  { icon = "trophy", title = "Tournaments & ring games", body = "Run structured tournaments with rebuys, add-ons, bounties and late registration — or drop into a casual ring game whenever a few friends are around." },
-  { icon = "devices", title = "Play anywhere", body = "Play in any web browser, or install the native apps for macOS, Windows, iOS and Android. The desktop apps keep themselves up to date automatically." },
-  { icon = "chip", title = "Fun Money, not gambling", body = "Every chip is Fun Money with no cash value. You can't buy in with real money and you can't cash out — it's about the game and the people, not the stakes." },
+  { icon = "games", title = "Dozens of games", body = "Hold'em, Omaha, Stud, Razz and \"normal\" draw and lowball games, as well as obscure variants like Chowaha, Courchevel, Dramaha, Mississippi Stud and Archie. Both fixed mixed games that can rotate by hand count or by level as well as some dealer's choice games where the players interactively choose which games from a menu." },
+  { icon = "trophy", title = "Tournaments & nascent ring games", body = "Run structured tournaments with rebuys, add-ons, bounties and late registration — or drop into a casual ring game whenever a few friends are around. TBH, the ring game support is in its infancy." },
+  { icon = "devices", title = "Play anywhere", body = "Play in any web browser, or install the native apps for macOS or Windows, (iOS and Android coming soon)." },
+  { icon = "chip", title = "Fun Money", body = "Keep realistic score, with no real money involved." },
 ]
 +++
 
