@@ -21,7 +21,7 @@
 {%- if page %}
   {%- set_global meta_title = page.title ~ " · " ~ config.title %}
   {%- set_global meta_desc = page.description | default(value=config.description) %}
-  {%- if current_path and current_path is starting_with("/blog/") %}
+  {%- if current_path and current_path is starting_with(pat="/blog/") %}
     {%- set_global og_type = "article" %}
   {%- else %}
     {%- set_global og_type = "website" %}
@@ -80,7 +80,7 @@
 <meta name="twitter:image" content="{{ og_image }}" />
 
 {# Article metadata for blog posts #}
-{%- if page and current_path and current_path is starting_with("/blog/") %}
+{%- if page and current_path and current_path is starting_with(pat="/blog/") %}
 {%- if page.date %}
 <meta property="article:published_time" content="{{ page.date }}" />
 {%- endif %}

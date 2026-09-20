@@ -7,7 +7,7 @@
 #}
 
 {% block content %}
-{% set is_post = current_path and current_path is starting_with("/blog/") %}
+{% set is_post = current_path and current_path is starting_with(pat="/blog/") %}
 <div class="wrap page">
   <article class="{% if is_post %}post{% endif %}">
     {% if is_post %}
