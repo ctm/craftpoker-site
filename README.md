@@ -56,7 +56,7 @@ here.
 `generate_feeds = true` with `feed_filenames = ["atom.xml"]` produces a
 site-wide feed at `/atom.xml`, a blog-section feed at `/blog/atom.xml`, and a
 per-tag feed at `/tags/<tag>/atom.xml` for each stakeholder tag
-(`players`, `investors`, `kickstarter-backers`).
+(`players`, `investors`, `kickstarters`, `developers`).
 
 ---
 
